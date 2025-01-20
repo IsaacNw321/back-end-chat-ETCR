@@ -5,7 +5,7 @@ import { Server as SocketServer } from 'socket.io';
 import chatRoutes from './routes/chat.routes.js'
 import userRoutes from './routes/user.routes.js'
 import http from 'http'
-import { DB_PORT, FRONTEND_URL } from './config.js';
+import { SERVER_PORT, FRONTEND_URL } from './config.js';
 const app = express();
 const server = http.createServer(app)
 const io  = new SocketServer(server, {
@@ -13,7 +13,7 @@ const io  = new SocketServer(server, {
     origin : FRONTEND_URL
   }
 })
-const PORT = DB_PORT;
+const PORT = SERVER_PORT || 3000; 
 app.use(cors())
 app.use(morgan("dev"))
 app.use(express.json());
