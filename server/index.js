@@ -17,6 +17,9 @@ const PORT = SERVER_PORT || 3000;
 app.use(cors())
 app.use(morgan("dev"))
 app.use(express.json());
+app.get("/", (req,res) => {
+  res.send("Esta es la api del Chat")
+})
 app.use("/api", userRoutes)
 app.use("/api", chatRoutes)
 io.on('connection', (socket) => {
