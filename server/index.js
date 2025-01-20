@@ -4,16 +4,16 @@ import cors from 'cors'
 import { Server as SocketServer } from 'socket.io';
 import chatRoutes from './routes/chat.routes.js'
 import userRoutes from './routes/user.routes.js'
-import messageRoutes from './routes/messages.routes.js'
 import http from 'http'
+import { DB_PORT, FRONTEND_URL } from './config.js';
 const app = express();
 const server = http.createServer(app)
 const io  = new SocketServer(server, {
   cors : {
-    origin : 'http://localhost:5173'
+    origin : FRONTEND_URL
   }
 })
-const PORT = 4000;
+const PORT = DB_PORT;
 app.use(cors())
 app.use(morgan("dev"))
 app.use(express.json());
