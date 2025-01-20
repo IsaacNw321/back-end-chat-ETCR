@@ -7,7 +7,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 export const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 
-export const DB_PORT = process.env.DB_PORT || '4000';
+export const DB_PORT = process.env.DB_PORT || '5432';
+
+export const SERVER_PORT = process.env.SERVER_PORT || '3000';
 
 export const DATABASE_URL = process.env.DATABASE_URL || `postgresql://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`;
 
